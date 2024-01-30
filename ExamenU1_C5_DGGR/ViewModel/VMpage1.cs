@@ -12,9 +12,9 @@ namespace ExamenU1_C5_DGGR.ViewModel
         #region VARIABLES
         bool _IMC;
         bool _FCN;
-        string _peso;
-        string _altura;
-        string _latidos;
+        int _peso;
+        int _altura;
+        int _latidos;
         #endregion
         #region CONSTRUCTOR
         public VMpage1(INavigation navigation)
@@ -36,19 +36,19 @@ namespace ExamenU1_C5_DGGR.ViewModel
             set { SetProperty(ref _FCN, value); }
         }
 
-        public string Peso
+        public int Peso
         {
             get { return _peso; }
             set { SetProperty(ref _peso, value); }
         }
 
-        public string Altura
+        public int Altura
         {
             get { return _altura; }
             set { SetProperty(ref _altura, value); }
         }
 
-        public string Latidos
+        public int Latidos
         {
             get { return _latidos; }
             set { SetProperty(ref _latidos, value); }
