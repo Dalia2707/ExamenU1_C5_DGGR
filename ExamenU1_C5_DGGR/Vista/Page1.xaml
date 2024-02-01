@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenU1_C5_DGGR.Vista.Page1">
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="IMCFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="LightBlue" />
                 <Setter Property="Padding" Value="24" />
                 <Setter Property="CornerRadius" Value="0" />
                 <Setter Property="IsVisible" Value="False" />
@@ -16,7 +16,6 @@
                 </Style.Triggers>
             </Style>
             <Style x:Key="FCNFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="LightGreen" />
                 <Setter Property="Padding" Value="24" />
                 <Setter Property="CornerRadius" Value="0" />
                 <Setter Property="IsVisible" Value="False" />
@@ -28,11 +27,12 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+
     <StackLayout>
         <Frame BackgroundColor="White" Padding="24" CornerRadius="0">
             <Label Text="Calcular IMC y FCN" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
         </Frame>
-        <Label Text="Puedes seleccionar entre calcular tu indice de masa corporal(IMC) y tu frecuencia cardiaca normal"/>
+        <Label Text="Puedes seleccionar entre calcular tu índice de masa corporal (IMC) y tu frecuencia cardíaca normal"/>
 
         <Label Text="Opciones" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
         <Frame BackgroundColor="Transparent">
@@ -48,10 +48,11 @@
         <!-- IMC Frame -->
         <Frame Style="{StaticResource IMCFrameStyle}">
             <StackLayout>
-            <Label Text="Datos para calcular el IMC"/>
+                <Label Text="Datos para calcular el IMC"/>
                 <Entry Placeholder="Peso" Text="{Binding Peso}"/>
                 <Entry Placeholder="Altura" Text="{Binding Altura}"/>
-                <Button Text="Calcular"/>
+                <Entry Text="{Binding ResultadoIMC}"/>
+                <Button Text="Calcular" Command="{Binding IndiceDeMasacomand}"/>
             </StackLayout>
         </Frame>
 
@@ -60,7 +61,8 @@
             <StackLayout>
                 <Label Text="Cuenta tus latidos por 15 segundos"/>
                 <Entry Placeholder="Latidos" Text="{Binding Latidos}"/>
-                <Button Text="Calcular"/>
+                <Entry Text="{Binding Resultadolatidos}"/>
+                <Button Text="Calcular" Command="{Binding FrecuenciaCardiacacomand}"/>
             </StackLayout>
         </Frame>
     </StackLayout>

@@ -10,7 +10,6 @@ namespace ExamenU1_C5_DGGR
         public App()
         {
             InitializeComponent();
-
             MainPage = new Page1();
         }
 

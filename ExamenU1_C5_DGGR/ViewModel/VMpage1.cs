@@ -15,6 +15,8 @@ namespace ExamenU1_C5_DGGR.ViewModel
         int _peso;
         int _altura;
         int _latidos;
+        int _resultadolatidos;
+        int _resultadoIMC;
         #endregion
         #region CONSTRUCTOR
         public VMpage1(INavigation navigation)
@@ -27,13 +29,27 @@ namespace ExamenU1_C5_DGGR.ViewModel
         public bool IMC
         {
             get { return _IMC; }
-            set { SetProperty(ref _IMC, value); }
+            set
+            {
+                SetProperty(ref _IMC, value);
+                if (_IMC)
+                {
+                    FCN = false;
+                }
+            }
         }
 
         public bool FCN
         {
             get { return _FCN; }
-            set { SetProperty(ref _FCN, value); }
+            set
+            {
+                SetProperty(ref _FCN, value);
+                if (_FCN)
+                {
+                    IMC = false;
+                }
+            }
         }
 
         public int Peso
@@ -53,7 +69,16 @@ namespace ExamenU1_C5_DGGR.ViewModel
             get { return _latidos; }
             set { SetProperty(ref _latidos, value); }
         }
-
+        public int Resultadolatidos
+        {
+            get { return _resultadolatidos; }
+            set { SetProperty(ref _resultadolatidos, value); }
+        }
+        public int ResultadoIMC
+        {
+            get { return _resultadoIMC; }
+            set { SetProperty(ref _resultadoIMC, value); }
+        }
         #endregion
         #region PROCESOS
         public async Task ProcesoAsyncrono()
@@ -64,10 +89,33 @@ namespace ExamenU1_C5_DGGR.ViewModel
         {
 
         }
+        public void FrecuenciaCardiaca()
+        {
+            Resultadolatidos = Latidos * 4;
+
+            if (60 > Resultadolatidos)
+            {
+                
+            }
+            else if (60 < Resultadolatidos && 100 < Resultadolatidos)
+            {
+
+            }
+            else if (100 < Resultadolatidos)
+            {
+
+            }
+        }
+        public void IndiceDeMasa()
+        {
+            ResultadoIMC = Peso / (Altura * Altura);
+        }
         #endregion
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
+        public ICommand FrecuenciaCardiacacomand => new Command(FrecuenciaCardiaca);
+        public ICommand IndiceDeMasacomand => new Command(IndiceDeMasa);
         #endregion
     }
 }
