@@ -45,7 +45,6 @@
         </Frame>
         <Label Text="Proporcionar Datos" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
 
-        <!-- IMC Frame -->
         <Frame Style="{StaticResource IMCFrameStyle}">
             <StackLayout>
                 <Label Text="Datos para calcular el IMC"/>
@@ -56,7 +55,6 @@
             </StackLayout>
         </Frame>
 
-        <!-- FCN Frame -->
         <Frame Style="{StaticResource FCNFrameStyle}">
             <StackLayout>
                 <Label Text="Cuenta tus latidos por 15 segundos"/>
